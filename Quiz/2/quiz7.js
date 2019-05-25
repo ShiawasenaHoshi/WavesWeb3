@@ -8,13 +8,3 @@ it("transfer", async function () {
     await waitForTx(tx.id);
     console.log(JSON.stringify(tx))
 });
-
-it("data transaction", async function () {
-    let aboutObject = {
-        "name": "Pupkin",
-        "occupation": "BlockchainDev"
-    };
-    let aboutString = JSON.stringify(aboutObject);
-    let tx = await broadcast(data({data: [{key: "web3-online-course-user-data", value: aboutString}]}, accASeed));
-    await waitForTx(tx.id);
-});

@@ -1,0 +1,11 @@
+A - attacker, B - target
+How to get all waves from B:
+0. B deploy vulnarable_dapp.ride
+1. A try to use evil_transfer.js and get 0 waves ("Transaction is not allowed by account-script")
+2. A change B-script by run evil_set_script
+3. A again use evil_set_script and steal 1 waves from B
+4. B very sad about lost waves, and deploy fixed_dapp.ride
+5. A try to run evil_transfer and evil_set_script but get error
+
+Important notice: when you deploy fixed_dapp.ride on B, you can't change B-DAPP via Waves-IDE. Only from code (i.e. run evil_set_script by B).
+I don't know why but I spent a lot of time before I realized it :)
