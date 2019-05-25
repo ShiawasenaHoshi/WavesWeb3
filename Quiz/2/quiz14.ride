@@ -1,0 +1,11 @@
+{-# STDLIB_VERSION 3 #-}
+{-# CONTENT_TYPE DAPP #-}
+{-# SCRIPT_TYPE ACCOUNT #-}
+@Verifier(tx)
+func verify() = {
+    match tx {
+        case d: SetScriptTransaction => true
+        case d: DataTransaction => true
+        case _ => sigVerify(tx.bodyBytes, tx.proofs[0], base58'3N4oVbF2GCv9CJ9yCHW9cTLN37XV7RnG3U2')
+    }
+}
