@@ -1,0 +1,31 @@
+{-# STDLIB_VERSION 3 #-}
+{-# CONTENT_TYPE DAPP #-}
+{-# SCRIPT_TYPE ACCOUNT #-}
+#Deploy at Alice account
+
+let alicePK =  base58'FyMfezk2k7RHqA7RPRPoLUBP2vgM8kC92cWEN3PqdrT6'
+let bobPK =  base58'6XtoQ7ooBwCFp1kJNVRuocVPge82Z6MkHSPX4fQD1SyQ'
+let cooperPK =  base58'D3vyasRPtHCDTGnaLZE9ezeVJ5U4fb1JtKJfdfAfiuHv'
+
+@Verifier(tx)
+func verify() = {
+    let alice1 = sigVerify(tx.bodyBytes, tx.proofs[0], alicePK)
+    let alice2 = sigVerify(tx.bodyBytes, tx.proofs[1], alicePK)
+    let alice3 = sigVerify(tx.bodyBytes, tx.proofs[2], alicePK)
+
+    let bob1 = sigVerify(tx.bodyBytes, tx.proofs[0], bobPK)
+    let bob2 = sigVerify(tx.bodyBytes, tx.proofs[1], bobPK)
+    let bob3 = sigVerify(tx.bodyBytes, tx.proofs[2], bobPK)
+
+    let cooper1 = sigVerify(tx.bodyBytes, tx.proofs[0], cooperPK)
+    let cooper2 = sigVerify(tx.bodyBytes, tx.proofs[1], cooperPK)
+    let cooper3 = sigVerify(tx.bodyBytes, tx.proofs[2], cooperPK)
+
+    let aliceBob = (alice1 && bob2) || (alice1 && bob3) || (alice2 && bob1) || (alice2 && bob3) || (alice3 && bob1) || (alice3 && bob2)
+    let aliceCooper = (alice1 && cooper2) || (alice1 && cooper3) || (alice2 && cooper1) || (alice2 && cooper3) || (alice3 && cooper1) || (alice3 && cooper2)
+    let cooperBob = (cooper1 && bob2) || (cooper1 && bob3) || (cooper2 && bob1) || (cooper2 && bob3) || (cooper3 && bob1) || (cooper3 && bob2)
+
+    match tx {
+        case _ => aliceBob || aliceCooper || cooperBob
+    }
+}

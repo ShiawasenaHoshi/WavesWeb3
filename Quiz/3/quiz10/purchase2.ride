@@ -1,0 +1,28 @@
+{-# STDLIB_VERSION 3 #-}
+{-# CONTENT_TYPE DAPP #-}
+{-# SCRIPT_TYPE ACCOUNT #-}
+#Deploy at Bob account
+#To deploy don't try to use "Deploy dAppscript" button. Use "deploy()" in console
+
+@Callable(i)
+func purchase(coupon: String) = {
+    let pmt = extract(i.payment)
+    if  (isDefined(pmt.assetId)) then throw("can use WAVES only at the moment")
+    else {
+        let customerAddress = toBase58String(i.caller.bytes)
+        let couponName = "item_" + coupon + "_coupon_price"
+        let price = match getInteger(this, couponName) {
+            case a:Int => a
+            case _ => 0
+        }
+        if (pmt.amount < price) then throw("purchase amount cannot be less than item price")
+        else if (pmt.amount > price) then throw("purchase amount cannot be higher than item price")
+        else {
+            let purchasePrefix = "purchase_item_" + coupon + "_customer_"
+            WriteSet([
+                DataEntry("status:" + purchasePrefix + customerAddress, "confirmed"),
+                DataEntry("price:" + purchasePrefix + customerAddress, price)
+            ])
+        }
+    }
+}
