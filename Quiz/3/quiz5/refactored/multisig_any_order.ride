@@ -1,0 +1,22 @@
+{-# STDLIB_VERSION 3 #-}
+{-# CONTENT_TYPE DAPP #-}
+{-# SCRIPT_TYPE ACCOUNT #-}
+#Deploy at jim account
+#Work with keys in any order
+
+let jimPK =  base58'tc9iPzTYV6X8KdScSrE6YkHxPcE6EmU6tEmGNMEbAxC'
+let bobPK =  base58'6XtoQ7ooBwCFp1kJNVRuocVPge82Z6MkHSPX4fQD1SyQ'
+let cooperPK =  base58'D3vyasRPtHCDTGnaLZE9ezeVJ5U4fb1JtKJfdfAfiuHv'
+
+@Verifier(tx)
+func verify() = {
+    let jimSigned = if(sigVerify(tx.bodyBytes, tx.proofs[0], jimPK) || sigVerify(tx.bodyBytes, tx.proofs[1], jimPK) || sigVerify(tx.bodyBytes, tx.proofs[2], jimPK)) then 1 else 0
+    let bobSigned = if(sigVerify(tx.bodyBytes, tx.proofs[0], bobPK) || sigVerify(tx.bodyBytes, tx.proofs[1], bobPK) || sigVerify(tx.bodyBytes, tx.proofs[2], bobPK)) then 1 else 0
+    let cooperSigned = if(sigVerify(tx.bodyBytes, tx.proofs[0], cooperPK) || sigVerify(tx.bodyBytes, tx.proofs[1], cooperPK) || sigVerify(tx.bodyBytes, tx.proofs[2], cooperPK)) then 1 else 0
+    let txAllowed = jimSigned + bobSigned + cooperSigned  >= 2
+
+    match tx {
+        case d: SetScriptTransaction => jimSigned == 1 #easy redeployment by "deploy()" in console
+        case _ => txAllowed
+    }
+}
