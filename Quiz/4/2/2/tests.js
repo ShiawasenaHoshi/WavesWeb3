@@ -11,8 +11,8 @@ let datajson = {
     "image": "http://bit.ly/2WSUODH"
 };
 
-let accountSupplierSeed = "fluid easily catalog few vacuum soldier bar milk rather alone prize trip";
-let dappAddress = "3MvWngGcbddUagYREyqeAKSFNw3H92w7LS4";
+const accountSupplierSeed = "fluid easily catalog few vacuum soldier bar milk rather alone prize trip";
+const dappAddress = "3MvWngGcbddUagYREyqeAKSFNw3H92w7LS4";
 
 it('add item', async function () {
     let ts = invokeScript({
