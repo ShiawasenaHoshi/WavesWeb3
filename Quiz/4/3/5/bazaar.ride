@@ -172,10 +172,11 @@ func voteCommit(item: String, hash: String) = {
     else if (getKeyItemSupplier(item) == NONE) then throw("item does not exist")
     else if (status != NONE && status != VOTING) then throw("voting is not possible")
     else {
+        let commitsNewCount = commits + 1
         WriteSet([
             DataEntry(getKeyCommit(item, user), hash),
-            DataEntry(getKeyCommitsCount(item), commits + 1),
-            DataEntry(getKeyItemStatus(item), if(commits == VOTERS) then REVEAL else VOTING)
+            DataEntry(getKeyCommitsCount(item), commitsNewCount),
+            DataEntry(getKeyItemStatus(item), if(commitsNewCount == VOTERS) then REVEAL else VOTING)
         ])
     }
 }
