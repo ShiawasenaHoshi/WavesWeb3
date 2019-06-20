@@ -1,0 +1,8 @@
+{-# STDLIB_VERSION 3 #-}
+{-# CONTENT_TYPE EXPRESSION #-}
+{-# SCRIPT_TYPE ASSET #-}
+
+match tx {
+    case ex: ExchangeTransaction => true
+    case _ => false
+}
