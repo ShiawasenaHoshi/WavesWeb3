@@ -3,11 +3,11 @@ Mastering web3 with Waves course
 
 # Links
 
-Учимся писать Waves смарт-контракты на RIDE и RIDE4DAPPS. Часть 1 (Многопользовательский кошелек): https://habr.com/ru/post/447790/
+РЈС‡РёРјСЃСЏ РїРёСЃР°С‚СЊ Waves СЃРјР°СЂС‚-РєРѕРЅС‚СЂР°РєС‚С‹ РЅР° RIDE Рё RIDE4DAPPS. Р§Р°СЃС‚СЊ 1 (РњРЅРѕРіРѕРїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёР№ РєРѕС€РµР»РµРє): https://habr.com/ru/post/447790/
 
-Применение смарт-аккаунтов Waves: от аукционов до бонусных программ: https://habr.com/ru/company/waves/blog/442238/
+РџСЂРёРјРµРЅРµРЅРёРµ СЃРјР°СЂС‚-Р°РєРєР°СѓРЅС‚РѕРІ Waves: РѕС‚ Р°СѓРєС†РёРѕРЅРѕРІ РґРѕ Р±РѕРЅСѓСЃРЅС‹С… РїСЂРѕРіСЂР°РјРј: https://habr.com/ru/company/waves/blog/442238/
 
-#Полезные ссылки для участников воркшопа "Полный цикл разработки децентрализованных приложений":
+#РџРѕР»РµР·РЅС‹Рµ СЃСЃС‹Р»РєРё РґР»СЏ СѓС‡Р°СЃС‚РЅРёРєРѕРІ РІРѕСЂРєС€РѕРїР° "РџРѕР»РЅС‹Р№ С†РёРєР» СЂР°Р·СЂР°Р±РѕС‚РєРё РґРµС†РµРЅС‚СЂР°Р»РёР·РѕРІР°РЅРЅС‹С… РїСЂРёР»РѕР¶РµРЅРёР№":
  
  
  Github: http://tiny.cc/github-waves
@@ -18,16 +18,16 @@ Mastering web3 with Waves course
  
  Blockchain Explorer: https://wavesexplorer.com/testnet/faucet
  
- Документация: https://docs.wavesplatform.com/en/
+ Р”РѕРєСѓРјРµРЅС‚Р°С†РёСЏ: https://docs.wavesplatform.com/en/
  
  Node API: https://testnode1.wavesnodes.com/api-docs/index.html
  
  Website: https://wavesplatform.com/products-keeper
  
  
- Задать вопросы можно тут:
+ Р—Р°РґР°С‚СЊ РІРѕРїСЂРѕСЃС‹ РјРѕР¶РЅРѕ С‚СѓС‚:
  
  
  StackOverflow: https://stackoverflow.com/questions/tagged/wavesplatform
  
- Телеграмм чат (английский язык): https://t.me/waves_ride_dapps_dev
+ РўРµР»РµРіСЂР°РјРј С‡Р°С‚ (Р°РЅРіР»РёР№СЃРєРёР№ СЏР·С‹Рє): https://t.me/waves_ride_dapps_dev
